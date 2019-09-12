@@ -5,11 +5,75 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace Monolitycznie
+namespace Proceduralnie
 {
     class Program
     {
+        static void Start()
+        {
+            Console.Clear();
+            Console.WriteLine("Aplikacja GRA");
+            Console.WriteLine("=============");
+        }
+
+        static int Losuj()
+        {
+            Random los = new Random();
+            int wylosowana = los.Next(1, 101);
+#if DEBUG
+            Console.WriteLine(wylosowana); // do usunięcia w Release
+#endif
+            Console.WriteLine("Wylosowałem liczbę z zakresu od 1 do 100. Odgadnij ją.");
+            return wylosowana;
+        }
+
+        static int WczytajPropozycję()
+        {
+            int propozycja = 0;
+            Console.Write("Podaj swoją propozycję: ");
+            string napis = Console.ReadLine();
+            while (true)
+            {
+                try
+                {
+                    propozycja = int.Parse(napis);
+                    break;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Nie podano liczby.\n Spróbuj jeszcze raz");
+                    continue;
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Przesadziłeś. Za duża liczba.");
+                    continue;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Niezidentyfikowany wyjątek. Awaria");
+                    Environment.Exit(1);
+                }
+            }
+            return propozycja;
+        }
+
         static void Main(string[] args)
+        {
+            Start();
+            int x = Losuj();
+            do
+            {
+                //wczytaj propozycję
+                //oceń propozycję
+            }
+            while (true);
+        }
+
+
+
+
+        static void Main1(string[] args)
         {
             // 1. Komputer losuje liczbę z podanego zakresu
             Random los = new Random();
@@ -30,7 +94,7 @@ namespace Monolitycznie
                 // 2. Człowiek proponuje (odgaduje)
                 Console.Write("Podaj swoją propozycję: ");
                 string napis = Console.ReadLine();
-                if( napis == "koniec"  )
+                if (napis == "koniec")
                 {
                     Console.WriteLine("Szkoda, że mnie opuszczasz.");
                     return;
@@ -46,7 +110,7 @@ namespace Monolitycznie
                     Console.WriteLine("Nie podano liczby.\n Spróbuj jeszcze raz");
                     continue;
                 }
-                catch(OverflowException)
+                catch (OverflowException)
                 {
                     Console.WriteLine("Przesadziłeś. Za duża liczba.");
                     continue;
