@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monolitycznie", "Monolitycz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proceduralnie", "Proceduralnie\Proceduralnie.csproj", "{3EE7F98E-E566-4784-A998-8742DD092AEA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraLib", "GraLib\GraLib.csproj", "{04332D36-7D81-45B5-BE79-BCAA3430CB6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3EE7F98E-E566-4784-A998-8742DD092AEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EE7F98E-E566-4784-A998-8742DD092AEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EE7F98E-E566-4784-A998-8742DD092AEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04332D36-7D81-45B5-BE79-BCAA3430CB6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04332D36-7D81-45B5-BE79-BCAA3430CB6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04332D36-7D81-45B5-BE79-BCAA3430CB6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04332D36-7D81-45B5-BE79-BCAA3430CB6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
