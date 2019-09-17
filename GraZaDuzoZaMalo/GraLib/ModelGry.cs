@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GraLib
 {
-    public class ModelGry
+    public partial class ModelGry
     {
         readonly private int wylosowana; // readonly oznacza, że nie można zmienić wartości poza konstruktorem
         public int ZakresOd { get; private set; }
@@ -14,6 +14,7 @@ namespace GraLib
         public enum Stan { Trwa, Poddana, Odgadnieta }
         public Stan StanGry { get; private set; }
 
+        public List<Ruch> Historia { get; private set; }
 
         // konstruktor
         public ModelGry(int zakresOd = 1, int zakresDo = 100)
@@ -23,6 +24,7 @@ namespace GraLib
             Random los = new Random();
             wylosowana = los.Next(ZakresOd, ZakresDo + 1);
             StanGry = Stan.Trwa;
+            Historia = new List<Ruch>();
         }
 
 
@@ -32,11 +34,20 @@ namespace GraLib
         public Odp Ocena(int propozycja)
         {
             if (propozycja < wylosowana)
+            {
+                //Ruch r = new Ruch(propozycja, Odp.ZaMalo);
+                //Historia.Add(r);
+                Historia.Add(new Ruch(propozycja, Odp.ZaMalo));
                 return Odp.ZaMalo;
+            }
             else if (propozycja > wylosowana)
+            {
+                Historia.Add(new Ruch(propozycja, Odp.ZaDuzo));
                 return Odp.ZaDuzo;
+            }
             else
             {
+                Historia.Add(new Ruch(propozycja, Odp.Trafione));
                 StanGry = Stan.Odgadnieta;
                 return Odp.Trafione;
             }
