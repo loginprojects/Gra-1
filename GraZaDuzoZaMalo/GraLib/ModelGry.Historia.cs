@@ -25,7 +25,5 @@ namespace GraLib
             public override string ToString() => $"{Czas} {Propozycja} {Odpowiedz}";
         }
 
-
-
     }
 }

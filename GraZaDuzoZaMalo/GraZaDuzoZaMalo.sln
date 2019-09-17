@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proceduralnie", "Procedural
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraLib", "GraLib\GraLib.csproj", "{04332D36-7D81-45B5-BE79-BCAA3430CB6C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppGra", "ConsoleAppGra\ConsoleAppGra.csproj", "{3B29AAEE-5658-4AFA-9594-71BA98C5CDF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraGUI", "GraGUI\GraGUI.csproj", "{DFF80AA0-715D-4D95-8D44-2DF354893C13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{04332D36-7D81-45B5-BE79-BCAA3430CB6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04332D36-7D81-45B5-BE79-BCAA3430CB6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04332D36-7D81-45B5-BE79-BCAA3430CB6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B29AAEE-5658-4AFA-9594-71BA98C5CDF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B29AAEE-5658-4AFA-9594-71BA98C5CDF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B29AAEE-5658-4AFA-9594-71BA98C5CDF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B29AAEE-5658-4AFA-9594-71BA98C5CDF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFF80AA0-715D-4D95-8D44-2DF354893C13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFF80AA0-715D-4D95-8D44-2DF354893C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFF80AA0-715D-4D95-8D44-2DF354893C13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFF80AA0-715D-4D95-8D44-2DF354893C13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
