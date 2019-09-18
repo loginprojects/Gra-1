@@ -18,6 +18,7 @@ namespace GraGUI
         public Form1()
         {
             InitializeComponent();
+            buttonLosuj.Enabled = false;
         }
 
         private void buttonNowaGra_Click(object sender, EventArgs e)
@@ -57,13 +58,44 @@ namespace GraGUI
            
         }
 
+        private bool blokada()
+        {
+            int wynik1, wynik2;
+            if (int.TryParse(textBoxDo.Text, out wynik1)
+                &&
+                int.TryParse(textBoxOd.Text, out wynik2))
+                return true;
+            else
+                return false;
+        }
+        
+
         private void textBoxDo_TextChanged(object sender, EventArgs e)
         {
             int wynik;
             if (int.TryParse(textBoxDo.Text, out wynik))
+            {
                 textBoxDo.BackColor = Color.LightGreen;
+            }
             else
+            {
                 textBoxDo.BackColor = Color.LightPink;
+            }
+            buttonLosuj.Enabled = blokada();
+        }
+
+        private void textBoxOd_TextChanged(object sender, EventArgs e)
+        {
+            int wynik;
+            if (int.TryParse(textBoxOd.Text, out wynik))
+            {
+                textBoxOd.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBoxOd.BackColor = Color.LightPink;
+            }
+            buttonLosuj.Enabled = blokada();
         }
     }
 }
