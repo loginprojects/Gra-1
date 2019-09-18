@@ -19,6 +19,7 @@ namespace GraGUI
         {
             InitializeComponent();
             buttonLosuj.Enabled = false;
+            groupBoxStatystyki.Visible = false;
         }
 
         private void buttonNowaGra_Click(object sender, EventArgs e)
@@ -32,30 +33,28 @@ namespace GraGUI
         {
             buttonPoddaj.Visible = false;
             buttonNowaGra.Enabled = true;
+            statystyki();
         }
 
         private void buttonLosuj_Click(object sender, EventArgs e)
         {
-            int x;
+            int x, y;
             try
             {
-                x = int.Parse(textBoxOd.Text);                
+                x = int.Parse(textBoxOd.Text);
+                y = int.Parse(textBoxDo.Text);
             }
             catch(FormatException)
             {
                 textBoxOd.BackColor = Color.Red;
                 return;
             }
-            textBoxOd.BackColor = Color.White;
-
-            int y = int.Parse(textBoxDo.Text);
+            textBoxOd.BackColor = textBoxDo.BackColor = Color.White;
 
             groupBoxLosowanie.Enabled = false;
             groupBoxOdgadywanie.Visible = true;
 
-
-            gra = new ModelGry(x, y);
-           
+            gra = new ModelGry(x, y);           
         }
 
         private bool blokada()
@@ -96,6 +95,39 @@ namespace GraGUI
                 textBoxOd.BackColor = Color.LightPink;
             }
             buttonLosuj.Enabled = blokada();
+        }
+
+        private void statystyki()
+        {
+            groupBoxStatystyki.Visible = true;
+            labelLiczbaRuchow.Text = $"Liczba ruchów = {gra.Historia.Count}";
+            TimeSpan czas = gra.Historia[gra.Historia.Count - 1].Czas - gra.Historia[0].Czas;
+            labelCzasGry.Text = $"Czas gry = {czas}";
+        }
+
+        private void buttonWyslij_Click(object sender, EventArgs e)
+        {
+            int propozycja = int.Parse(textBoxPropozycja.Text);
+            var odpowiedz = gra.Ocena(propozycja);
+            switch (odpowiedz)
+            {
+                case ModelGry.Odp.ZaMalo:
+                    labelOcena.Text = "Za mało";
+                    labelOcena.ForeColor = Color.Red;
+                    break;
+                case ModelGry.Odp.Trafione:
+                    labelOcena.Text = "Trafione";
+                    labelOcena.ForeColor = Color.Green;
+                    buttonWyslij.Enabled = false;
+                    statystyki();
+                    break;
+                case ModelGry.Odp.ZaDuzo:
+                    labelOcena.Text = "Za dużo";
+                    labelOcena.ForeColor = Color.Red;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
